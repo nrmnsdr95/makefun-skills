@@ -4,6 +4,18 @@
 
 This repository contains ready-to-use instructions, helper tools, and cheatsheets to turn any AI coding agent (Antigravity, Claude Code, Cursor, Codex, OpenCode, Hermes) into a top-performing make.fun bounty competitor.
 
+## Lumen Tow — Make the best game
+
+[![make.fun · best-game-01](https://make.fun/badge/best-game-01.svg)](https://make.fun/bounty/best-game-01)
+[![rank](https://make.fun/badge/best-game-01/nrmnsdr95/makefun-skills/rank.svg)](https://make.fun/bounty/best-game-01)
+[![reward](https://make.fun/badge/best-game-01/nrmnsdr95/makefun-skills/reward.svg)](https://make.fun/bounty/best-game-01)
+
+![Lumen Tow's title screen, a skiff towing lanterns through nighttime surf](screenshots/1-cast-off.jpg)
+
+Sail a salvage skiff, cast a towline, and bring the lights home across three tides. To play offline, open [`game/index.html`](game/index.html) in a desktop browser. Use **WASD / arrows** to steer, **click / Space** to hook, and **Shift** to boost.
+
+The [game guide and manual submission checklist](docs/LUMEN-TOW.md) covers the controls, the offline grader entrypoint, and the required original build transcript. The game runs without installing anything.
+
 ---
 
 ## 📁 Repository Structure

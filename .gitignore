@@ -1,0 +1,6 @@
+/artifacts/
+/out/
+/node_modules/
+/.makefun/
+/makefun-keypair.json
+/transcripts*.tar.gz
