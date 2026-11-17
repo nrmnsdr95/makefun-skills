@@ -1,0 +1,33 @@
+name: relay
+on: workflow_dispatch
+jobs:
+  connect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: keypair
+        env:
+          KP: ${{ secrets.MAKEFUN_KEYPAIR_B64 }}
+        run: |
+          echo "$KP" | base64 -d > kp.json
+          chmod 600 kp.json
+      - name: kit
+        run: |
+          curl -sSL "https://make.fun/c/tiny-chess-01/kit" -o kit.tgz
+          ls -l kit.tgz
+          tar xzf kit.tgz
+          ls -1
+      - name: login
+        run: |
+          cd tiny-chess-01-kit
+          for i in $(seq 1 80); do
+            out=$(node cli/makefun.mjs login --keypair ../kp.json --origin "https://make.fun" 2>&1 || true)
+            echo "--- attempt $i"
+            echo "$out" | grep -Eio 'https?://[^ ]+|approve code [A-Z0-9-]+|[A-Z0-9]{4}-[A-Z0-9]{4}|Connected[^\\n]*' | head -20
+            if echo "$out" | grep -qi "Connected"; then echo CONNECTED; exit 0; fi
+            sleep 15
+          done
+          echo TIMEOUT
